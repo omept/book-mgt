@@ -2,7 +2,7 @@
 
 `Domo Arigator 🙏🏽 to all parties involved`
 
-Modify cmd/main.go and use the right credentials for your database.
+Modify pkg/config/app.go and use the right credentials for your database.
 
 ## Key Take Aways
 
