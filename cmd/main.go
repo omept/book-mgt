@@ -10,7 +10,6 @@ import (
 
 func main() {
 	r := mux.NewRouter()
-
 	routes.RegisterBookStoreRoutes(r)
 
 	http.Handle("/", r)

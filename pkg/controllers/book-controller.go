@@ -2,6 +2,7 @@ package controllers
 
 import (
 	"encoding/json"
+	"fmt"
 	"net/http"
 	"strconv"
 
@@ -11,9 +12,14 @@ import (
 	"github.com/ong-gtp/book-mgt/pkg/utils"
 )
 
+func NotFound(w http.ResponseWriter, r *http.Request) {
+	utils.OkEmpty("Invalid URL", w)
+}
+
 func CreateBook(w http.ResponseWriter, r *http.Request) {
 	book := models.Book{}
 	utils.ParseBody(r, &book)
+	fmt.Println(book)
 	b, err := book.CreateBook()
 	errors.DBErrorCheck(err)
 
@@ -43,6 +49,11 @@ func GetBookById(w http.ResponseWriter, r *http.Request) {
 	book, dbInst := models.GetBookById(id)
 	errors.DBErrorCheck(dbInst)
 
+	if book.ID == 0 {
+		utils.OkEmpty("Invalid book", w)
+		return
+	}
+
 	res, er2 := json.Marshal(book)
 	errors.ErrorCheck(er2)
 
@@ -55,9 +66,15 @@ func DeleteBook(w http.ResponseWriter, r *http.Request) {
 
 	id, err := strconv.ParseInt(bookId, 0, 0)
 	errors.ErrorCheck(err)
-
-	_, dbInst := models.DeleteBook(id)
+	book, dbInst := models.GetBookById(id)
 	errors.DBErrorCheck(dbInst)
+	if book.ID == 0 {
+		utils.OkEmpty("Invalid book", w)
+		return
+	}
+
+	_, dbInst2 := models.DeleteBook(id)
+	errors.DBErrorCheck(dbInst2)
 
 	utils.OkEmpty("Deleted successfully", w)
 }

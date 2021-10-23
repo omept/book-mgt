@@ -6,7 +6,7 @@
 
 - project structure
 - multiple module usage
-- routing
+- routing and subrouting
 - middleware
 - error handling
 - gorm mysql
@@ -14,6 +14,8 @@
 ## Main Tutorial
 
 - [https://www.youtube.com/watch?v=1E_YycpCsXw&ab_channel=AkhilSharma]
+
+- [https://golang.org/doc/] 🙏🏽
 
 ## Router and Middleware
 

@@ -1,8 +1,13 @@
 package errors
 
-import "github.com/jinzhu/gorm"
+import (
+	"fmt"
+
+	"github.com/jinzhu/gorm"
+)
 
 func Error(e error) {
+	fmt.Println(e.Error())
 	panic(e)
 }
 

@@ -8,13 +8,17 @@ import (
 )
 
 var RegisterBookStoreRoutes = func(router *mux.Router) {
-	router.Use(headerMiddleware)
 
-	router.HandleFunc("/book/", controllers.CreateBook).Methods("POST")
-	router.HandleFunc("/book/", controllers.GetBook).Methods("GET")
-	router.HandleFunc("/book/{bookId}", controllers.GetBookById).Methods("GET")
-	router.HandleFunc("/book/{bookId}", controllers.UpdateBook).Methods("PUT")
-	router.HandleFunc("/book/{bookId}", controllers.DeleteBook).Methods("DELETE")
+	sb := router.PathPrefix("/api/").Subrouter()
+	sb.Use(headerMiddleware)
+
+	sb.HandleFunc("/book/", controllers.CreateBook).Methods("POST")
+	sb.HandleFunc("/book/", controllers.GetBook).Methods("GET")
+	sb.HandleFunc("/book/{bookId}", controllers.GetBookById).Methods("GET")
+	sb.HandleFunc("/book/{bookId}", controllers.UpdateBook).Methods("PUT")
+	sb.HandleFunc("/book/{bookId}", controllers.DeleteBook).Methods("DELETE")
+	sb.HandleFunc("/", controllers.NotFound).Methods("DELETE", "PUT", "GET", "PATCH", "POST")
+
 }
 
 func headerMiddleware(next http.Handler) http.Handler {
