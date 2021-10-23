@@ -11,14 +11,20 @@
 - error handling
 - gorm mysql
 
-## Main Tutorial
+## Main Tutorials
 
-- [https://www.youtube.com/watch?v=1E_YycpCsXw&ab_channel=AkhilSharma]
+- [https://www.youtube.com/watch?v=1E_YycpCsXw&ab_channel=AkhilSharma] 👍🏽
 
 - [https://golang.org/doc/] 🙏🏽
 
-## Router and Middleware
+- [https://stackoverflow.com/] 🙏🏽
 
-- [https://stackoverflow.com/questions/51456253/how-to-set-http-responsewriter-content-type-header-globally-for-all-api-endpoint]
+## Support
 
-- [https://github.com/gorilla/mux]
+- [https://stackoverflow.com/questions/51456253/how-to-set-http-responsewriter-content-type-header-globally-for-all-api-endpoint] 🙏🏽
+
+- [https://github.com/gorilla/mux] 🙏🏽
+
+- [https://gist.github.com/maoueh/624f108ee2f3e6ca0b496d6c2f75bcd7] 🙏🏽
+
+- [https://gorm.io/docs] 🙏🏽
